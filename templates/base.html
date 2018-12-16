@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock title %}</title>
+    <!-- Bulms CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/materia/bulmaswatch.min.css">
+    <!-- Fontawesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro" rel="stylesheet">
+</head>
+<body style="font-family: 'Source Sans Pro', sans-serif;">
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand" style="font-family: 'Bungee', cursive;">
+                <a href="#" class="navbar-item">redditclone</a>
+            </div>
+            <div class="navbar-start">
+                <a href="{% url 'home' %}" class="navbar-item">Home</a>
+            </div>
+            <div class="navbar-end">
+                {% if request.user.is_authenticated %}
+                {% else %}
+                <div class="buttons">
+                    <a href="{% url 'login' %}" class="navbar-item button is-primary is-outlined is-small">Login</a>
+                    <a href="" class="navbar-item button is-primary is-small">Registrer</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </section>
+</body>
+</html>

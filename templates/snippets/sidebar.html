@@ -1,0 +1,25 @@
+
+<div class="card">
+    <div class="card-content">
+        <div class="content">
+            Write your very first post.
+            <br/><br/>
+            {% if request.user.is_authenticated %}
+                <a href="" class="button is-primary is-fullwidth">Create Post</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="button is-primary is-fullwidth">Create Post</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<br/>   
+<div class="card">
+    <div class="card-header">
+        <div class="card-header-title">Communities</div>
+    </div>
+    <div class="card-content">
+        <div class="content">
+            No communities yet. Create one <a href="">Here</a>.
+        </div>
+    </div>
+</div>
